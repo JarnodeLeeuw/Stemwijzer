@@ -2,30 +2,29 @@
 <html>
 <head>
 	<title>Stemwijzer</title>
-	<script src="JS/stemwijzer.js" type="text/javascript"></script>
-	<script src="JS/data.js" type="text/javascript"></script>
+
+	
 </head>
 <body>
-	<button class="button" id="Back" onclick="back();">Back</button>
-	<div class="stellingen">
-		<div id="stelling1">
-			<h1>Bindend referendum</h1>
-			<p>Er moet een bindend referendum komen, waarmee burgers door het parlement aangenomen wetten kunnen tegenhouden.</p>
-		</div>
-		<div id="stelling2">
-			<h1>Maatschappelijke dienstplicht</h1>
-			<p>Er moet een bindend referendum komen, waarmee burgers door het parlement aangenomen wetten kunnen tegenhouden.</p>
-		</div>
-		<div id="stelling3">
-			<h1>Bindend referendum</h1>
-			<p>Er moet een bindend referendum komen, waarmee burgers door het parlement aangenomen wetten kunnen tegenhouden.</p>
-		</div>
+	<button class="button1" id="Back" onclick="back();">Back</button>
+	<div id="start">
+		<button class="button0" id="Start" onclick="start();">Start</button>
 	</div>
+<div id="survey">
+	<p id="subject"></p>
+	<p id="statement"></p>
 
-	<button class="button" id="Eens" onclick="eens();">Eens</button>
-	<button class="button" id="Meh" onclick="meh();">Geen van beide</button>
-	<button class="button" id="Oneens" onclick="oneens();">Oneens</button>
-	<button class="button" id="Skip" onclick="skip();">Sla deze vraag over</button>
-	<button class="button" id="Wat" onclick="wat();">Wat vinden de partijen ervan?</button>
+
+	<button class="button1" id="Pro" onclick="pro();">Eens</button>
+	<button class="button1" id="Meh" onclick="meh();">Geen van beide</button>
+	<button class="button1" id="Contra" onclick="con();">Oneens</button>
+	<button class="button1" id="Skip" onclick="next();">Sla deze vraag over</button>
+	<button class="button1" id="What" onclick="what();">Wat vinden de partijen ervan?</button>
+	<script src="http://stemwijzer.dvc-icta.nl/data.js" type="text/javascript"></script>
+	<script src="JS/stemwijzer.js" type="text/javascript"></script>
+	<div id="parties">
+		<p id="opinion"></p>
+	</div>
+</div>
 </body>
 </html>
