@@ -9,6 +9,9 @@ function start(){
 	document.getElementById("survey").style.display ="inline";
 	document.getElementById("Back").style.display ="inline";
 	document.getElementById("start").style.display ="none";
+	for (var i = 0; i < subjects[0].parties.length; i++) {
+		console.log(subjects[0].parties[i], i)
+	}
 
 }
 
@@ -19,7 +22,9 @@ function next(){
 	nr ++
 	document.getElementById("subject").innerHTML = subjects[nr].title;
 	document.getElementById("statement").innerHTML = subjects[nr].statement;
-	
+	for (var i = 0; i < subjects[nr].parties.length; i++) {
+		console.log(subjects[nr].parties[i], i)
+	}
 }
 
 function back(){
@@ -29,6 +34,10 @@ function back(){
 	nr --
 	document.getElementById("subject").innerHTML = subjects[nr].title;
 	document.getElementById("statement").innerHTML = subjects[nr].statement;
+	for (var i = 0; i < subjects[nr].parties.length; i++) {
+		console.log(subjects[nr].parties[i], i)
+	}
+
 	
 }
 
@@ -53,6 +62,9 @@ function pro(){
 } else {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
 }
+for (var i = 0; i < subjects[nr].parties.length; i++) {
+		console.log(subjects[nr].parties[i], i)
+	}
 }
 
 function con(){
@@ -71,6 +83,9 @@ function con(){
 } else {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
 }
+for (var i = 0; i < subjects[nr].parties.length; i++) {
+		console.log(subjects[nr].parties[i], i)
+	}
 }
 
 function meh(){
@@ -90,4 +105,7 @@ function meh(){
 } else {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
 }
+for (var i = 0; i < subjects[nr].parties.length; i++) {
+		console.log(subjects[nr].parties[i], i)
+	}
 }
