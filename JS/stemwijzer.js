@@ -1,4 +1,5 @@
 var subjectNr = 0;
+var whatOpen = false;
 
 var partyScore= [
 		{name: "50Plus", score: 0},
@@ -49,6 +50,7 @@ function next(){
 	subjectNr ++
 	document.getElementById("subject").innerHTML = subjects[subjectNr].title;
 	document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
+	document.getElementById("partyOpinion").innerHTML = "";
 	for (var i = 0; i < subjects[subjectNr].parties.length; i++) {
 		console.log(subjects[subjectNr].parties[i], i)
 	}
@@ -61,6 +63,7 @@ function back(){
 	subjectNr --
 	document.getElementById("subject").innerHTML = subjects[subjectNr].title;
 	document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
+	document.getElementById("partyOpinion").innerHTML = "";
 	for (var i = 0; i < subjects[subjectNr].parties.length; i++) {
 		console.log(subjects[subjectNr].parties[i], i)
 	}
@@ -69,19 +72,31 @@ function back(){
 }
 
 function what(){
-	document.getElementById("opinon").innerHTML = subjects[subjectNr].parties;
+	var partyOpinion = document.getElementById("partyOpinion");
+	if (whatOpen == false) {
+		for (var k = 0; k < subjects[subjectNr].parties.length; k++) {
+		    var node = document.createElement("p");
+		    var textnode = document.createTextNode(subjects[subjectNr].parties[k].name + " " + subjects[subjectNr].parties[k].position + " " + subjects[subjectNr].parties[k].explanation);
+		    node.appendChild(textnode);
+		    partyOpinion.appendChild(node);
+		    whatOpen = true;
+		}
+	}else {
+		partyOpinion.innerHTML = "";
+		whatOpen = false;
+	
+	}
 }
 
 function pro(){
 
 if (subjectNr == subjects.length-1) {
-		alert('jaja');
 		calculateScores()
 	}
 	subjectNr ++
 	document.getElementById("subject").innerHTML = subjects[subjectNr].title;
 	document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
-	
+	document.getElementById("partyOpinion").innerHTML = "";
 	
 	if (typeof(Storage) !== "undefined") {
     // Store
@@ -101,12 +116,12 @@ console.log(subjectNr)
 
 function con(){
 if (subjectNr == subjects.length-1) {
-		alert('jaja');
 		calculateScores()
 	}
 	subjectNr ++
 	document.getElementById("subject").innerHTML = subjects[subjectNr].title;
 	document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
+	document.getElementById("partyOpinion").innerHTML = "";
 
 	if (typeof(Storage) !== "undefined") {
     // Store
@@ -124,12 +139,12 @@ for (var i = 0; i < subjects[subjectNr].parties.length; i++) {
 
 function meh(){
 	if (subjectNr == subjects.length-1) {
-		alert('jaja');
 		calculateScores()
 	}
 	subjectNr ++
 	document.getElementById("subject").innerHTML = subjects[subjectNr].title;
 	document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
+	document.getElementById("partyOpinion").innerHTML = "";
 	
 	if (typeof(Storage) !== "undefined") {
     // Store
@@ -157,7 +172,8 @@ function calculateScores(){
 			})
 			console.log(subjects[i].parties)
 		
-		var myScore = sessionStorage.getItem(i);	
+		var myScore = sessionStorage.getItem(i);
+
 		for (var j = 0; j < subjects[i].parties.length; j++) {
 			var currentParty = subjects[i].parties[j];
 
