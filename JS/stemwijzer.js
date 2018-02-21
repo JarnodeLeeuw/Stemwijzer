@@ -46,13 +46,15 @@ function start(){
 function next(){
 	if (subjectNr > 5) {
 		calculateScores()
-	}
-	subjectNr ++
-	document.getElementById("subject").innerHTML = subjects[subjectNr].title;
-	document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
-	document.getElementById("partyOpinion").innerHTML = "";
-	for (var i = 0; i < subjects[subjectNr].parties.length; i++) {
-		console.log(subjects[subjectNr].parties[i], i)
+	}else{
+		subjectNr ++
+		document.getElementById("subject").innerHTML = subjects[subjectNr].title;
+		document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
+		document.getElementById("partyOpinion").innerHTML = "";
+		whatOpen = false
+		for (var i = 0; i < subjects[subjectNr].parties.length; i++) {
+			console.log(subjects[subjectNr].parties[i], i)
+		}
 	}
 }
 
@@ -64,6 +66,7 @@ function back(){
 	document.getElementById("subject").innerHTML = subjects[subjectNr].title;
 	document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
 	document.getElementById("partyOpinion").innerHTML = "";
+	whatOpen = false
 	for (var i = 0; i < subjects[subjectNr].parties.length; i++) {
 		console.log(subjects[subjectNr].parties[i], i)
 	}
@@ -92,24 +95,25 @@ function pro(){
 
 if (subjectNr == subjects.length-1) {
 		calculateScores()
+	}else{
+			subjectNr ++
+			document.getElementById("subject").innerHTML = subjects[subjectNr].title;
+			document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
+			document.getElementById("partyOpinion").innerHTML = "";
+			whatOpen = false
+
+			if (typeof(Storage) !== "undefined") {
+		    // Store
+		    sessionStorage.setItem(subjectNr, "pro");
+		    // Retrieve
+		    document.getElementById("result").innerHTML = sessionStorage.getItem(subjectNr);
+		} else {
+		    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+		}
+		for (var i = 0; i < subjects[subjectNr].parties.length; i++) {
+				console.log(subjects[subjectNr].parties[i], i)
+			}
 	}
-	subjectNr ++
-	document.getElementById("subject").innerHTML = subjects[subjectNr].title;
-	document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
-	document.getElementById("partyOpinion").innerHTML = "";
-	
-	if (typeof(Storage) !== "undefined") {
-    // Store
-    sessionStorage.setItem(subjectNr, "pro");
-    // Retrieve
-    document.getElementById("result").innerHTML = sessionStorage.getItem(subjectNr);
-} else {
-    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-}
-for (var i = 0; i < subjects[subjectNr].parties.length; i++) {
-		console.log(subjects[subjectNr].parties[i], i)
-	}
-	
 }
 console.log(subjects)
 console.log(subjectNr)
@@ -117,47 +121,53 @@ console.log(subjectNr)
 function con(){
 if (subjectNr == subjects.length-1) {
 		calculateScores()
-	}
-	subjectNr ++
-	document.getElementById("subject").innerHTML = subjects[subjectNr].title;
-	document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
-	document.getElementById("partyOpinion").innerHTML = "";
+	}else{
 
-	if (typeof(Storage) !== "undefined") {
-    // Store
-    sessionStorage.setItem(subjectNr, "contra");
-    // Retrieve
-    document.getElementById("result").innerHTML = sessionStorage.getItem(subjectNr);
-} else {
-    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-}
-for (var i = 0; i < subjects[subjectNr].parties.length; i++) {
-		console.log(subjects[subjectNr].parties[i], i)
+
+			subjectNr ++
+			document.getElementById("subject").innerHTML = subjects[subjectNr].title;
+			document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
+			document.getElementById("partyOpinion").innerHTML = "";
+			whatOpen = false
+
+			if (typeof(Storage) !== "undefined") {
+		    // Store
+		    sessionStorage.setItem(subjectNr, "contra");
+		    // Retrieve
+		    document.getElementById("result").innerHTML = sessionStorage.getItem(subjectNr);
+		} else {
+		    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+		}
+		for (var i = 0; i < subjects[subjectNr].parties.length; i++) {
+				console.log(subjects[subjectNr].parties[i], i)
+			}
 	}
-	
 }
 
 function meh(){
 	if (subjectNr == subjects.length-1) {
 		calculateScores()
+		}else{
+
+			
+			subjectNr ++
+			document.getElementById("subject").innerHTML = subjects[subjectNr].title;
+			document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
+			document.getElementById("partyOpinion").innerHTML = "";
+			whatOpen = false
+			
+			if (typeof(Storage) !== "undefined") {
+		    // Store
+		    sessionStorage.setItem(subjectNr, "ambivalent");
+		    // Retrieve
+		    document.getElementById("result").innerHTML = sessionStorage.getItem(subjectNr);
+		} else {
+		    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+		}
+		for (var i = 0; i < subjects[subjectNr].parties.length; i++) {
+				console.log(subjects[subjectNr].parties[i], i)
+			}
 	}
-	subjectNr ++
-	document.getElementById("subject").innerHTML = subjects[subjectNr].title;
-	document.getElementById("statement").innerHTML = subjects[subjectNr].statement;
-	document.getElementById("partyOpinion").innerHTML = "";
-	
-	if (typeof(Storage) !== "undefined") {
-    // Store
-    sessionStorage.setItem(subjectNr, "ambivalent");
-    // Retrieve
-    document.getElementById("result").innerHTML = sessionStorage.getItem(subjectNr);
-} else {
-    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-}
-for (var i = 0; i < subjects[subjectNr].parties.length; i++) {
-		console.log(subjects[subjectNr].parties[i], i)
-	}
-	
 }
 
 
