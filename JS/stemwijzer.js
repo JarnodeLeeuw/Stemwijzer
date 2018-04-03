@@ -204,7 +204,7 @@ function calculateScores(){
 	document.getElementById("finalScore").style.display = "inline";
 	for (var k = 0; k < partyScore.length; k++) {
 		    var node = document.createElement("p");
-		    var textnode = document.createTextNode(partyScore[k].name + " " + partyScore[k].score);
+		    var textnode = document.createTextNode(partyScore[k].name + ": " + partyScore[k].score);
 		    node.appendChild(textnode);
 		    document.getElementById("finalScore").appendChild(node);
 		}
